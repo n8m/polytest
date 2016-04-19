@@ -26,9 +26,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <ul>
       <template is="dom-repeat" items="{{fields}}" filter="_isChecked" observe="selected">
-        <li>
-          <span>{{item.name}}</span>
-        </li>
+        <field-type field="{{item}}"></field-type>
       </template>
     </ul>
 

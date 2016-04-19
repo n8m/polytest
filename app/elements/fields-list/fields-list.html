@@ -21,6 +21,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         list-style: none;
         padding: 0;
       }
+      input[type="text"]{
+        height: 25px;
+        line-height: 25px;
+      }
     </style>
 
     <h2 class="page-title">Fields</h2>
@@ -32,8 +36,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <ul>
       <template is="dom-repeat" items="{{fields}}" filter="{{_queryFilter(filterVal)}}">
         <li>
+          <label>
           <input type="checkbox" checked="{{item.selected::change}}">
           <span>{{item.name}}</span>
+          </label>
         </li>
       </template>
     </ul>
