@@ -54,7 +54,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Polymer({
         is: 'fields-list',
         properties:{
-          fields: Array
+          fields: {
+            type: Array
+          }
         },
 
         _queryFilter: function(query){

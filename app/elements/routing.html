@@ -37,12 +37,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       next();
     });
 
-    page('/', function() {
-      app.route = 'home';
+    page('/', function(ctx, next) {
+      next();
     });
 
     page(app.baseUrl, function() {
-      app.route = 'home';
+      page.redirect('/list');
     });
 
     page('/list', function() {

@@ -24,11 +24,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <h2 class="page-title">Configure</h2>
 
-    <ul>
-      <template is="dom-repeat" items="{{fields}}" filter="_isChecked" observe="selected">
-        <field-type field="{{item}}"></field-type>
-      </template>
-    </ul>
+<!--     <template is="dom-if" if="{{isNoFields(fields)}}">
+      <h2>Please add at least one field on <a data-route="list" href="{{baseUrl}}list">fields</a> tab</h2>
+    </template> -->
+
+    <template is="dom-repeat" items="{{fields}}" filter="_isChecked" observe="selected">
+      <field-type field="{{item}}"></field-type>
+    </template>
 
   </template>
 
@@ -44,8 +46,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return field.selected ? true : false;
         },
 
-        properties:{
-          fields: Array
+        isNoFields: function(fields){
+          return fields.length ? false : true;
         }
 
       });
