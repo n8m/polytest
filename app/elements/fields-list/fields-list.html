@@ -25,8 +25,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <h2 class="page-title">Fields</h2>
 
+    <input type="text" placeholder="filter" value="{{filterVal::input}}">
+
+    <fields-data fields="{{fields}}"></fields-data>
+
     <ul>
-      <template is="dom-repeat" items="{{fields}}">
+      <template is="dom-repeat" items="{{fields}}" filter="{{_queryFilter(filterVal)}}">
         <li>
           <input type="checkbox" checked="{{item.selected::change}}">
           <span>{{item.name}}</span>
@@ -44,20 +48,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Polymer({
         is: 'fields-list',
         properties:{
-          fields:{
-            type: Array,
-            value: [
-              {name: "first name", selected: true, type: "text", value: null, required: true},
-              {name: "second name", selected: false, type: "text", value: null, required: false},
-              {name: "age", selected: false, type: "number", value: null, required: false},
-              {name: "date of birth", selected: false, type: "date", value: null, required: false},
-              {name: "gender", selected: false, type: "select", value: null, values:[{title: "male", value: "m"},{title: "female", value: "f"},{title: "other", value: "0_o"}]},
-            ]
-          }
+          fields: Array
         },
 
-        ready: function() {
-          console.log(this.something);
+        _queryFilter: function(query){
+          return function(field){
+            if (!query) return true;
+            if (!field) return false;
+            return (field.name && ~field.name.indexOf(query));
+          }
         }
 
       });

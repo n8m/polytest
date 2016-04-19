@@ -108,11 +108,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="list">
-              <fields-list></fields-list>
+              <fields-list fields="{{fields}}"></fields-list>
             </section>
 
             <section data-route="configure">
-              <configure-list></configure-list>
+              <configure-list fields="{{fields}}"></configure-list>
             </section>
           </iron-pages>
         </div>
