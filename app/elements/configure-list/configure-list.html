@@ -24,9 +24,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <h2 class="page-title">Configure</h2>
 
-<!--     <template is="dom-if" if="{{isNoFields(fields)}}">
-      <h2>Please add at least one field on <a data-route="list" href="{{baseUrl}}list">fields</a> tab</h2>
-    </template> -->
+
+ <h2 hidden$="[[isNoFields(fields.*)]]">Please add at least one field on <a data-route="list" href="{{baseUrl}}list">fields</a> tab</h2>
+
 
     <template is="dom-repeat" items="{{fields}}" filter="_isChecked" observe="selected">
       <field-type field="{{item}}"></field-type>
@@ -41,13 +41,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Polymer({
         is: 'configure-list',
 
+        properties:{
+          fields:{
+            type: Array,
+            notify: true
+          }
+        },
+
         //filter
         _isChecked: function(field){
           return field.selected ? true : false;
         },
 
         isNoFields: function(fields){
-          return fields.length ? false : true;
+          return fields.base.filter(function(element){
+            return element.selected ? true : false;
+          }).length ? true : false;
         }
 
       });

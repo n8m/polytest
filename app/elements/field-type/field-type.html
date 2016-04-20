@@ -34,10 +34,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <span>{{field.name}}</span>
 
       <template is="dom-if" if="{{isText(field.type)}}">
-        <input type="text" placeholder="{{field.name}}">
+        <input type="text" placeholder="{{field.name}}" value="{{field.value::input}}">
       </template>
       <template is="dom-if" if="{{isNumber(field.type)}}">
-        <input type="number" placeholder="{{field.name}}">
+        <input type="number" placeholder="{{field.name}}" value="{{field.value::input}}">
       </template>
       <template is="dom-if" if="{{isDate(field.type)}}">
         <paper-date-picker></paper-date-picker>
@@ -58,7 +58,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Polymer({
         is: 'field-type',
         properties:{
-          field: Object
+          field: Object,
+          notify: true
         },
         isNumber: function(type){
           return type === 'number' ? true : false;

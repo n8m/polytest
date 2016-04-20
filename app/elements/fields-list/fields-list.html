@@ -13,8 +13,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="fields-list">
 
-  <!-- <fields-data fields="{{fields}}"></fields-data> -->
-
   <template>
     <style include="shared-styles">
       ul{
@@ -55,7 +53,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         is: 'fields-list',
         properties:{
           fields: {
-            type: Array
+            type: Array,
+            notify: true
           }
         },
 
