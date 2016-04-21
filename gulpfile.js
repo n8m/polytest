@@ -24,6 +24,7 @@ var historyApiFallback = require('connect-history-api-fallback');
 var packageJson = require('./package.json');
 var crypto = require('crypto');
 var ensureFiles = require('./tasks/ensure-files.js');
+var jshint = require('gulp-jshint');
 
 // var ghPages = require('gulp-gh-pages');
 
@@ -296,6 +297,12 @@ gulp.task('deploy-gh-pages', function() {
       silent: true,
       branch: 'gh-pages'
     }), $.ghPages()));
+});
+
+gulp.task('lint', function() {
+  return gulp.src(['./app/**/*.js','!./app/bower_components/**/*.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
 });
 
 // Load tasks for web-component-tester

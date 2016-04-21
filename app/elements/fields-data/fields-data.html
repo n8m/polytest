@@ -12,28 +12,5 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
 
 <dom-module id="fields-data">
-
-  <script>
-    (function() {
-      'use strict';
-
-      Polymer({
-        is: 'fields-data',
-        properties:{
-          fields:{
-            type: Array,
-            notify: true,
-            value: [
-              {name: "first name", selected: true, type: "text", value: null, required: true},
-              {name: "second name", selected: true, type: "text", value: null, required: false},
-              {name: "age", selected: true, type: "number", value: null, required: false},
-              {name: "date of birth", selected: true, type: "date", value: null, required: false},
-              {name: "gender", selected: true, type: "select", value: null, values:[{title: "male", value: "m"},{title: "female", value: "f"},{title: "other", value: "0_o"}]},
-            ]
-          }
-        }
-
-      });
-    })();
-  </script>
+	<script src="fields-data.js"></script>
 </dom-module>

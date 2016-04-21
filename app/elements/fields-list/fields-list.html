@@ -45,28 +45,5 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   </template>
 
-  <script>
-    (function() {
-      'use strict';
-
-      Polymer({
-        is: 'fields-list',
-        properties:{
-          fields: {
-            type: Array,
-            notify: true
-          }
-        },
-
-        _queryFilter: function(query){
-          return function(field){
-            if (!query) return true;
-            if (!field) return false;
-            return (field.name && ~field.name.indexOf(query));
-          }
-        }
-
-      });
-    })();
-  </script>
+  <script src="fields-list.js"></script>
 </dom-module>
