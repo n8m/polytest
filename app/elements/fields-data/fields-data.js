@@ -1,8 +1,26 @@
 (function() {
   'use strict';
 
+  var singleton = false;
+
   Polymer({
     is: 'fields-data',
+
+    attached:function(){
+      if(singleton) {
+       this.isActive = false;
+       this.remove();
+      } else {
+       singleton = true;
+       this.isActive = true;
+       // remainder of element initialization
+      }
+    },
+
+    detached:function() {
+     if(this.isActive) singleton = false;
+    },
+
     properties:{
       fields:{
         type: Array,
@@ -18,4 +36,12 @@
     }
 
   });
+})();
+
+
+(function(){
+  Polymer({
+   is:'my-singleton',
+
+ });
 })();
