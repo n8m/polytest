@@ -12,5 +12,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
 
 <dom-module id="fields-data">
-	<script src="fields-data.js"></script>
+
+  <template>
+
+
+<!--     <ul>
+      <template is="dom-repeat" items="{{fields}}" filter="{{_queryFilter(filterVal)}}">
+        <li>
+          <label>
+          <input type="checkbox" checked="{{item.selected::change}}">
+          <span>{{item.name}}</span>
+          </label>
+        </li>
+      </template>
+    </ul>
+ -->
+    
+    <iron-localstorage 
+      name="fields" 
+      value="{{fields}}"
+      on-iron-localstorage-load-empty="init">
+    </iron-localstorage>
+  </template>
+
+  <script src="fields-data.js"></script>
 </dom-module>
