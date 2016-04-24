@@ -38,11 +38,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     });
 
     page('/', function(ctx, next) {
-      page.redirect('/list');
+      page.redirect('list');
     });
 
     page(app.baseUrl, function() {
-      page.redirect('/list');
+      page.redirect('list');
     });
 
     page('/list', function() {
