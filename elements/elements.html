@@ -32901,7 +32901,7 @@ module.exports = Array.isArray || function (arr) {
     });
 
     page('/', function(ctx, next) {
-      next();
+      page.redirect('/list');
     });
 
     page(app.baseUrl, function() {
