@@ -32901,11 +32901,11 @@ module.exports = Array.isArray || function (arr) {
     });
 
     page('/', function(ctx, next) {
-      page.redirect('/list');
+      page.redirect('list');
     });
 
     page(app.baseUrl, function() {
-      page.redirect('/list');
+      page.redirect('list');
     });
 
     page('/list', function() {
