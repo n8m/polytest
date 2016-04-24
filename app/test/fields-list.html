@@ -12,36 +12,41 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>my-greeting-basic</title>
+  <title>fields-list</title>
 
   <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
   <script src="../bower_components/web-component-tester/browser.js"></script>
 
   <!-- Import the element to test -->
-  <link rel="import" href="../elements/my-greeting/my-greeting.html">
+  <link rel="import" href="../elements/fields-list/fields-list.html">
 
 </head>
 <body>
 
   <test-fixture id="basic">
     <template>
-      <my-greeting></my-greeting>
+      <fields-list></fields-list>
     </template>
   </test-fixture>
 
   <script>
 
-    suite('my-greeting tests', function() {
-      var greeting, header;
+    suite('basic field-list test', function() {
+      var fieldList, input, filteredResults;
 
       setup(function() {
-        greeting = fixture('basic');
+        fieldList = fixture('basic');
       });
 
-      test('Welcome!', function() {
-        header = greeting.$$('h2');
-        assert.equal(header.textContent, 'Welcome!');
+      test('check input', function() {
+        input = Polymer.dom(fieldList.root).querySelector('input');
+        assert.isNotNull(input, 'input is defined');
       });
+
+      // test('check filter function', function(){
+      //   filteredResults = fieldList._queryFilter('f');
+      //   assert.equal(filteredResults.length, 2);
+      // })
 
     });
   </script>
