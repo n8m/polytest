@@ -31,6 +31,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .dropdown-content{
       display: inline-block;
     }
+    paper-dropdown-menu{
+      top: -30px;
+    }
   </style>
 
   <template>
@@ -49,7 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </template>
       <template is="dom-if" if="{{isSelect(field.type)}}">
         <paper-dropdown-menu label="{{field.name}}">
-          <paper-menu class="dropdown-content">
+          <paper-menu class="dropdown-content" selected="{{field.value}}">
             <template
               is="dom-repeat"
               items="{{field.values}}"
