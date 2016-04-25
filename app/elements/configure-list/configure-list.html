@@ -22,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <h2 class="page-title">Configure</h2>
 
- <h2 hidden$="[[isNoFields(fields.*)]]">Please add at least one field on <a data-route="list" href="{{baseUrl}}list">fields</a> tab</h2>
+    <h2 id="info-message" hidden$="[[isNoFields(fields.*)]]">Please add at least one field on <a data-route="list" href="{{baseUrl}}list">fields</a> tab</h2>
 
 
     <template is="dom-repeat" items="{{fields}}" filter="_isChecked" observe="selected">

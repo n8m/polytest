@@ -31,22 +31,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
 
-    suite('basic field-list test', function() {
+    suite('filter list test', function() {
       var fieldList, input, filteredResults;
 
       setup(function() {
         fieldList = fixture('basic');
       });
 
-      test('check input', function() {
-        input = Polymer.dom(fieldList.root).querySelector('input');
-        assert.isNotNull(input, 'input is defined');
+      test('filters fields', function(done) {
+        fieldList.fields = [
+          {name: 'foo'},
+          {name: 'bar'}
+        ];
+
+        Polymer.dom(fieldList.root).querySelector('input[type=text]').value = 'f';
+
+        flush(function() {
+          filteredResults = Polymer.dom(fieldList.root).querySelectorAll('li');
+          assert.equal(2, filteredResults.length);
+          assert.equal('foo', filteredResults[0].querySelector('label span').textContent);
+          done();
+        });
       });
 
-      // test('check filter function', function(){
-      //   filteredResults = fieldList._queryFilter('f');
-      //   assert.equal(filteredResults.length, 2);
-      // })
+      test('_queryFilter() performs filtering', function() {
+        var filter = fieldList._queryFilter('o');
+        var passedFilter = function(field) {
+          return filter(field) !== 0;
+        };
+        assert.isTrue(passedFilter({name: 'foo'}));
+        assert.isFalse(passedFilter({name: 'bar'}));
+      });
 
     });
   </script>
