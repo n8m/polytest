@@ -36,13 +36,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     page('*', scrollToTop, closeDrawer, function(ctx, next) {
       next();
     });
-
-    page('/', function(ctx, next) {
-      page.redirect('list');
+    page('/', function() {
+      app.route = 'list';
     });
-
     page(app.baseUrl, function() {
-      page.redirect('list');
+      app.route = 'list';
     });
 
     page('/list', function() {
