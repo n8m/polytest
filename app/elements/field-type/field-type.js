@@ -7,16 +7,21 @@
       field: {
         type: Object,
         notify: true
-      },
-      tempDate: {
-        type: Date,
-        notify: true,
-        observer: '_setModel'
       }
     },
 
-    _setModel: function(value){
-      this.set('field.value', value);
+    ready: function(){
+      var _this = this;
+
+      setTimeout(function(){
+        if(_this.field.type === 'date'){
+          _this.listen(_this.querySelector('#picker'), 'click', 'handleClick');
+        }
+      })
+    },
+
+    handleClick: function(){
+      this.querySelector('#picker').enforceDateChange();
     },
 
     isNumber: function(type){

@@ -48,7 +48,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <input type="number" placeholder="{{field.name}}" value="{{field.value::input}}">
       </template>
       <template is="dom-if" if="{{isDate(field.type)}}">
-        <paper-date-picker date="{{tempDate}}" id="picker"></paper-date-picker>
+        <jv-datepicker
+          date="{{field.value}}"
+          input-date="{{field.value}}"
+          id="picker"
+        ><jv-datepicker>
       </template>
       <template is="dom-if" if="{{isSelect(field.type)}}">
         <paper-dropdown-menu label="{{field.name}}">
