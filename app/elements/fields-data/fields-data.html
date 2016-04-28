@@ -14,11 +14,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="fields-data">
 
   <template>
+
     <iron-localstorage
       name="fields"
       value="{{fields}}"
       on-iron-localstorage-load-empty="init">
     </iron-localstorage>
+
+
+    <iron-ajax
+      url="fields.json"
+      last-response="{{fields}}"
+      id="fieldsajax">
+    </iron-ajax>
+
   </template>
 
   <script src="fields-data.js"></script>

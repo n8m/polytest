@@ -48,7 +48,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <input type="number" placeholder="{{field.name}}" value="{{field.value::input}}">
       </template>
       <template is="dom-if" if="{{isDate(field.type)}}">
-        <paper-date-picker></paper-date-picker>
+        <paper-date-picker date="{{tempDate}}" id="picker"></paper-date-picker>
       </template>
       <template is="dom-if" if="{{isSelect(field.type)}}">
         <paper-dropdown-menu label="{{field.name}}">

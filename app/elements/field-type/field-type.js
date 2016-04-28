@@ -4,9 +4,21 @@
   Polymer({
     is: 'field-type',
     properties:{
-      field: Object,
-      notify: true
+      field: {
+        type: Object,
+        notify: true
+      },
+      tempDate: {
+        type: Date,
+        notify: true,
+        observer: '_setModel'
+      }
     },
+
+    _setModel: function(value){
+      this.set('field.value', value);
+    },
+
     isNumber: function(type){
       return type === 'number' ? true : false;
     },
